@@ -61,32 +61,3 @@ function Drag() {
 }
 
 export default Drag;
-
-// import Draggable from "react-draggable";
-
-// const handleStart = () => {
-//   console.log("Has Started Dragging!!!");
-// };
-// const handleDrag = (e) => {
-//   console.log("Is being hold");
-// };
-// const handleStop = () => {
-//   console.log("Done!");
-// };
-
-/* <Draggable
-        axis="x"
-        defaultPosition={{ x: 0, y: 0 }}
-        position={null}
-        grid={[25, 25]}
-        scale={1}
-        onStart={handleStart}
-        onDrag={handleDrag}
-        onStop={handleStop}
-      >
-        <div>
-          <Title>
-            <h1>Hello there!</h1>
-          </Title>
-        </div>
-      </Draggable> */

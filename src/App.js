@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import Calendar from "./components/Calendar";
 import Task from "./components/Tasks/CreateTask";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Mantine from "./components/Mantine";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/drag" component={Drag} />
         <Route path="/calander" component={Calendar} />
         <Route path="/tasks" component={Task} />
+        <Route path="/Mantine" component={Mantine} />
       </div>
     </Router>
   );
