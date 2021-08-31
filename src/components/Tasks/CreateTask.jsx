@@ -1,26 +1,13 @@
 import React, { useState } from "react";
 import Task from "./Task";
 import styled from "styled-components";
+import classes from "./task.module.css";
+import "./task.module.css";
+
+
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 
-const List = styled.div`
-  border: 1px
-    ${(props) => (props.isDraggingOver ? "dashed #000" : "solid #ddd")};
-  background: #fff;
-  padding: 0.5rem 0.5rem 0;
-  border-radius: 3px;
-  flex: 0 0 150px;
-  font-family: sans-serif;
-`;
-
-const Kiosk = styled(List)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 200px;
-`;
 
 const Item = styled.div`
   display: flex;
@@ -41,9 +28,6 @@ const Clone = styled(Item)`
   }
 `;
 
-const TaskInput = styled.div`
-  text-align: center;
-`;
 
 export default function CreateTask() {
   const [task, setTask] = useState({ id: "", content: "" });
@@ -75,22 +59,31 @@ export default function CreateTask() {
   };
 
   return (
+    <div className = {classes.container}>
     <React.Fragment>
-      <TaskInput>
+      <div  className= {classes.taskform} >
+      <h1 className = {classes.taskform__heading_primary}> Add new task </h1>
         <form onSubmit={addTask}>
           <input
+          className = {classes.taskform__input}
+          autocomplete="off"
             name="content"
             placeholder="Task Title"
             value={task.content}
             onChange={handleChange}
           />
-          <button>Add</button>
+          <button className = {classes.taskform__button}>
+          <svg className={classes.taskform__icon}>
+          <use xlinkHref="img/#icon-plus"></use>
+          </svg>
+          </button>
         </form>
-      </TaskInput>
+      </div>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="TASKS" isDropDisabled={true}>
           {(provided, snapshot) => (
-            <Kiosk
+            <sidebar
+              className ={classes.taskbar}
               ref={provided.innerRef}
               isDraggingOver={snapshot.isDraggingOver}
             >
@@ -119,10 +112,11 @@ export default function CreateTask() {
                   );
                 })}
               {provided.placeholder}
-            </Kiosk>
+            </sidebar>
           )}
         </Droppable>
       </DragDropContext>
     </React.Fragment>
+    </div>
   );
 }
