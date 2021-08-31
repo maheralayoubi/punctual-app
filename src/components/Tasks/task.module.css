@@ -34,9 +34,15 @@ body {
 
 .taskbar {
   order: -1;
-  height: 100%;
+  overflow-y: auto;
+  height: 100vh;
   flex: 0 0 16%;
   background: linear-gradient(to right bottom, var(--color-Primary-dark), var(--color-Primary-light)); }
+  .taskbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-Grey-dark-1);
+    border-radius: 20px; }
+  .taskbar::-webkit-scrollbar {
+    width: .8rem; }
 
 .taskform {
   font-family: 'Josefin Sans', sans-serif;

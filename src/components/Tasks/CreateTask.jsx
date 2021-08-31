@@ -58,6 +58,8 @@ export default function CreateTask() {
     console.log(result);
   };
 
+
+
   return (
     <div className = {classes.container}>
     <React.Fragment>
@@ -72,7 +74,9 @@ export default function CreateTask() {
             value={task.content}
             onChange={handleChange}
           />
-          <button className = {classes.taskform__button}>
+          <button 
+          className = {classes.taskform__button}
+          >
           <svg className={classes.taskform__icon}>
           <use xlinkHref="img/#icon-plus"></use>
           </svg>
