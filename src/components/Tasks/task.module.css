@@ -34,7 +34,7 @@ body {
 
 .taskbar {
   order: -1;
-  height: 100vh;
+  height: 100%;
   flex: 0 0 16%;
   background: linear-gradient(to right bottom, var(--color-Primary-dark), var(--color-Primary-light)); }
 
