@@ -51,7 +51,7 @@ font-family: 'Josefin Sans', sans-serif;
     padding: 1rem ;
     border-radius:100px;
     background-color: var(--color-Grey-light-1);
-    transition: all 1s;
+    transition: all .2s;
     align-self:flex-end;
 
     &:active{
@@ -106,3 +106,19 @@ font-family: 'Josefin Sans', sans-serif;
     border: 1px solid #ccc;
 }
 
+// style  clone of item  after Drag
+.clone{
+    position: relative;
+    top: 1rem;
+    text-align: center;
+    width: 85%;
+    margin-left: 2rem;
+    padding: 2rem;
+    border-radius : 10px;
+    background-color:var(--color-Grey-light-3);
+    opacity: .8;
+
+    &:not(:last-child){
+        margin-bottom: 1.5rem;
+    }
+}

@@ -9,24 +9,8 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 
 
-const Item = styled.div`
-  display: flex;
-  user-select: none;
-  padding: 0.5rem;
-  margin: 0 0 0.5rem 0;
-  align-items: flex-start;
-  align-content: flex-start;
-  line-height: 1.5;
-  border-radius: 3px;
-  background: #fff;
-  border: 1px ${(props) => (props.isDragging ? "dashed #4099ff" : "solid #ddd")};
-`;
 
-const Clone = styled(Item)`
-  ~ div {
-    transform: none !important;
-  }
-`;
+
 
 
 export default function CreateTask() {
@@ -78,7 +62,7 @@ export default function CreateTask() {
           className = {classes.taskform__button}
           >
           <svg className={classes.taskform__icon}>
-          <use xlinkHref="img/#icon-plus"></use>
+          <use xlinkHref="#icon-plus"></use>
           </svg>
           </button>
         </form>
@@ -108,7 +92,7 @@ export default function CreateTask() {
                             snapshot={snapshot}
                           />
                           {snapshot.isDragging && (
-                            <Clone>{currentTask.content}</Clone>
+                            <div className = {classes.clone}>{currentTask.content}</div>
                           )}
                         </React.Fragment>
                       )}
