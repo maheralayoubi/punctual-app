@@ -1,124 +1,119 @@
-.taskform{
-font-family: 'Josefin Sans', sans-serif;
-    position: relative;
-    padding: 3rem 0 ;
-    height:fit-content;
-    flex: 0 0 84%;
+.taskform {
+  font-family: "Josefin Sans", sans-serif;
+  position: relative;
+  padding: 3rem 0;
+  height: fit-content;
+  flex: 0 0 84%;
 
-   display: flex;
-   flex-direction:column;
+  display: flex;
+  flex-direction: column;
 
+  &__heading_primary {
+    color: #ccc;
+    font-size: 4.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
 
-    &__heading_primary{
-        color: #ccc;
-        font-size: 4.5rem;
-        font-weight: 600;
-        margin-bottom: 2.5rem;
+    align-self: center;
+  }
 
-        align-self:center;
-    }
-
-    &__input{
-        
-        font-family: inherit;
-        font-size: 2rem;
-        font-weight: 700;
-        background-color:var(--color-Grey-light-2);
-        color:var(--color-Grey-dark-1);
-        border-radius:10px;
-        margin-right: 2rem;
-        width: 70%;
-        border:none;
-        padding: .7rem 2rem;
-        margin-left: 10rem;
-
-        transition: all .2s;
-        
-        &:focus{
-            outline: none;
-            width: 75%;
-            background-color:var(--color-Grey-light-3);
-        }
-
-        &::-webkit-input-placeholder{
-            font-weight: 200;
-            color : var(--color-Grey-light-4);
-        }
-    }
-
-    &__button{
+  &__input {
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: var(--color-Grey-light-2);
+    color: var(--color-Grey-dark-1);
+    border-radius: 10px;
+    margin-right: 2rem;
+    width: 70%;
     border: none;
-    padding: 1rem ;
-    border-radius:100px;
+    padding: 0.7rem 2rem;
+    margin-left: 10rem;
+
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      width: 75%;
+      background-color: var(--color-Grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 200;
+      color: var(--color-Grey-light-4);
+    }
+  }
+
+  &__button {
+    border: none;
+    padding: 1rem;
+    border-radius: 100px;
     background-color: var(--color-Grey-light-1);
-    transition: all .2s;
-    align-self:flex-end;
+    transition: all 0.2s;
+    align-self: flex-end;
 
-    &:active{
-        transform: translateY(.5rem);
+    &:active {
+      transform: translateY(0.5rem);
     }
-    }
+  }
 
-    &__icon{
+  &__icon {
     height: 2rem;
     width: 2rem;
-    fill: var( --color-Primary-light);
-    }
+    fill: var(--color-Primary-light);
+  }
 }
 
+.task {
+  position: relative;
+  top: 1rem;
+  text-align: center;
+  width: 85%;
+  margin-left: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: var(--color-Grey-light-3);
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
 
+  &__heading {
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-Grey-dark-1);
+  }
 
-.task{
-    position: relative;
-    top: 1rem;
-    text-align: center;
-    width: 85%;
-    margin-left: 2rem;
-    padding: 2rem;
-    border-radius : 10px;
-    background-color:var(--color-Grey-light-3);
-    &:not(:last-child){
-        margin-bottom: 1.5rem;
-    }
-
-    &__heading{
-        font-family: inherit;
-        font-size: 1.6rem;
-        font-weight: 700;
-        color:var(--color-Grey-dark-1);
-    }
-
-    &__time{
-        font-family: inherit;
-        font-size: 1.6rem;
-        font-weight:400 ;
-        line-height: 3rem;
-        color: var(--color-Grey-dark-1);
-
-    }
+  &__time {
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: var(--color-Grey-dark-1);
+  }
 }
 
-.dashed{
-    border: 1px dashed #4099ff;
+.dashed {
+  border: 1px dashed #4099ff;
 }
 
-.solid{
-    border: 1px solid #ccc;
+.solid {
+  border: 1px solid #ccc;
 }
 
 // style  clone of item  after Drag
-.clone{
-    position: relative;
-    top: 1rem;
-    text-align: center;
-    width: 85%;
-    margin-left: 2rem;
-    padding: 2rem;
-    border-radius : 10px;
-    background-color:var(--color-Grey-light-3);
-    opacity: .8;
+.clone {
+  position: relative;
+  top: 1rem;
+  text-align: center;
+  width: 85%;
+  margin-left: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: var(--color-Grey-light-3);
+  opacity: 0.8;
 
-    &:not(:last-child){
-        margin-bottom: 1.5rem;
-    }
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
 }

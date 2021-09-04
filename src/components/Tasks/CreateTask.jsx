@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import Task from "./Task";
-import styled from "styled-components";
 import classes from "./task.module.css";
 import "./task.module.css";
 
-
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
-
-
-
-
-
 
 export default function CreateTask() {
   const [task, setTask] = useState({ id: "", content: "" });
@@ -42,69 +35,67 @@ export default function CreateTask() {
     console.log(result);
   };
 
-
-
   return (
-    <div className = {classes.container}>
-    <React.Fragment>
-      <div  className= {classes.taskform} >
-      <h1 className = {classes.taskform__heading_primary}> Add new task </h1>
-        <form onSubmit={addTask}>
-          <input
-          className = {classes.taskform__input}
-          autocomplete="off"
-            name="content"
-            placeholder="Task Title"
-            value={task.content}
-            onChange={handleChange}
-          />
-          <button 
-          className = {classes.taskform__button}
-          >
-          <svg className={classes.taskform__icon}>
-          <use xlinkHref="#icon-plus"></use>
-          </svg>
-          </button>
-        </form>
-      </div>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="TASKS" isDropDisabled={true}>
-          {(provided, snapshot) => (
-            <sidebar
-              className ={classes.taskbar}
-              ref={provided.innerRef}
-              isDraggingOver={snapshot.isDraggingOver}
-            >
-              {tasks &&
-                tasks.map((currentTask, index) => {
-                  return (
-                    <Draggable
-                      key={currentTask.id}
-                      draggableId={currentTask.id}
-                      index={index}
-                    >
-                      {(provided, snapshot) => (
-                        <React.Fragment>
-                          <Task
-                            key={index}
-                            title={currentTask.content}
-                            provided={provided}
-                            snapshot={snapshot}
-                          />
-                          {snapshot.isDragging && (
-                            <div className = {classes.clone}>{currentTask.content}</div>
-                          )}
-                        </React.Fragment>
-                      )}
-                    </Draggable>
-                  );
-                })}
-              {provided.placeholder}
-            </sidebar>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </React.Fragment>
+    <div className={classes.container}>
+      <React.Fragment>
+        <div className={classes.taskform}>
+          <h1 className={classes.taskform__heading_primary}> Add new task </h1>
+          <form onSubmit={addTask}>
+            <input
+              className={classes.taskform__input}
+              autoComplete="off"
+              name="content"
+              placeholder="Task Title"
+              value={task.content}
+              onChange={handleChange}
+            />
+            <button className={classes.taskform__button}>
+              <svg className={classes.taskform__icon}>
+                <use xlinkHref="#icon-plus"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="TASKS" isDropDisabled={true}>
+            {(provided, snapshot) => (
+              <div
+                className={classes.taskbar}
+                ref={provided.innerRef}
+                isdraggingover={snapshot.isdraggingover}
+              >
+                {tasks &&
+                  tasks.map((currentTask, index) => {
+                    return (
+                      <Draggable
+                        key={currentTask.id}
+                        draggableId={currentTask.id}
+                        index={index}
+                      >
+                        {(provided, snapshot) => (
+                          <React.Fragment>
+                            <Task
+                              key={index}
+                              title={currentTask.content}
+                              provided={provided}
+                              snapshot={snapshot}
+                            />
+                            {snapshot.isDragging && (
+                              <div className={classes.clone}>
+                                {currentTask.content}
+                              </div>
+                            )}
+                          </React.Fragment>
+                        )}
+                      </Draggable>
+                    );
+                  })}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </React.Fragment>
     </div>
   );
 }
