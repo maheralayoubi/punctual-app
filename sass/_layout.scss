@@ -1,22 +1,25 @@
-.container{
-display: flex;
+.container {
+  display: flex;
 }
 
-.taskbar{
-    order: -1;
+.taskbar {
+  order: -1;
 
-    overflow-y: auto;
-    height:100vh;
-    flex:  0 0 16%;
-    background: linear-gradient(to right bottom ,  var(--color-Primary-dark), var(--color-Primary-light));
+  overflow-y: auto;
+  height: 100vh;
+  flex: 0 0 16%;
+  background: linear-gradient(
+    to right bottom,
+    var(--color-Primary-dark),
+    var(--color-Primary-light)
+  );
 
-    &::-webkit-scrollbar-thumb{
-        background-color: var(--color-Grey-dark-1);
-        border-radius: 20px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-Grey-dark-1);
+    border-radius: 20px;
+  }
 
-    &::-webkit-scrollbar{   
-        width: .8rem;
-    }
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
 }
-
