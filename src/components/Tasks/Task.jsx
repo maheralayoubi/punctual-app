@@ -2,14 +2,6 @@ import classes from "./task.module.css";
 
 export default function Task(props) {
   const provided = props.provided;
-
-  var today = new Date();
-  var date =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  var time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date + " " + time;
-
   let border = "";
 
   if (props.isDragging) {
@@ -28,11 +20,6 @@ export default function Task(props) {
       {...provided.dragHandleProps}
     >
       <h3 className={classes.task__heading}>{props.title}</h3>
-      <p className={classes.task__time}>
-        {" "}
-        Task time assigned:
-        <br /> {dateTime}
-      </p>
     </div>
   );
 }
