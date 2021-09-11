@@ -38,6 +38,26 @@ body {
   display: flex;
 }
 
+.taskbar1 {
+  order: -1;
+  overflow-y: auto;
+  display: flex;
+  border: solid 1px black;
+  align-items: center;
+  justify-content: space-around;
+  height: 20vh;
+  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    to bottom right,
+    var(--color-Primary-dark),
+    var(--color-Primary-light)
+  );
+}
+
 .taskbar {
   order: -1;
   overflow-y: auto;

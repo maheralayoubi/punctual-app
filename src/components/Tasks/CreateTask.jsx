@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Task from "./Task";
+import TaskInput from "./TaskInput";
 import classes from "./task.module.css";
 import "./task.module.css";
 import _ from "lodash";
@@ -27,11 +28,7 @@ export default function CreateTask() {
     "in-progress": {
       title: "in-progress",
       actions: [],
-    },
-    done: {
-      title: "done",
-      actions: [],
-    },
+    }
   });
 
   const addTask = (e) => {
@@ -90,24 +87,12 @@ export default function CreateTask() {
 
   return (
     <div className={classes.container}>
-      <div className={classes.taskform}>
-        <h1 className={classes.taskform__heading_primary}> Add new task </h1>
-        <form onSubmit={addTask}>
-          <input
-            className={classes.taskform__input}
-            autoComplete="off"
-            name="content"
-            placeholder="Task Title"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-          />
-          <button className={classes.taskform__button}>
-            <svg className={classes.taskform__icon}>
-              <use xlinkHref="#icon-plus"></use>
-            </svg>
-          </button>
-        </form>
-      </div>
+      <TaskInput
+        formTitle="Add new task"
+        addTask={addTask}
+        task={task}
+        setTask={setTask}
+      />
       <DragDropContext onDragEnd={onDragEnd}>
         {_.map(tasks, (data, key) => {
           return (
@@ -122,7 +107,7 @@ export default function CreateTask() {
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                     key={data.title}
-                    className={classes.taskbar}
+                    className={data.title === "todo" ? classes.taskbar : classes.taskbar1}
                   >
                     {data.actions.map((currentAction, index) => {
                       return (
