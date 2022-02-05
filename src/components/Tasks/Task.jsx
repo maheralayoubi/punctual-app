@@ -1,5 +1,7 @@
 import classes from "./task.module.css";
 
+import React from 'react';
+
 export default function Task(props) {
   const provided = props.provided;
   let border = "";

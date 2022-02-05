@@ -1,15 +1,17 @@
 import React from "react";
 import Task from "./components/Tasks/CreateTask";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Route path="/tasks" component={Task} />
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/tasks" element={<Task />}></Route>
+        </Routes>
       </div>
-    </Router>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;
